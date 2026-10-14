@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f6efff">
+  <title>You're Invited | Sweet Fifteen</title>
+  <style>
+    :root {
+      --purple: #76539b;
+      --deep: #51366f;
+      --lavender: #f6efff;
+      --line: #e7d9f3;
+      --ink: #51465c;
+      --muted: #83758f;
+      --white: #fff;
+    }
+    * { box-sizing: border-box; }
+    html { min-height: 100%; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      min-height: 100svh;
+      padding: 0;
+      background: #fbf8ff;
+      color: var(--ink);
+      font-family: "Trebuchet MS", Arial, sans-serif;
+    }
+    .invite {
+      width: 100%;
+      min-height: 100vh;
+      min-height: 100svh;
+      display: grid;
+      grid-template-columns: minmax(280px, 0.85fr) minmax(0, 1.15fr);
+      background: var(--white);
+      overflow: hidden;
+    }
+    .top {
+      min-height: 100%;
+      padding: 48px 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: var(--lavender);
+      border-right: 1px solid var(--line);
+    }
+    .sparkle { color: var(--purple); letter-spacing: 8px; font-size: 18px; }
+    .eyebrow {
+      margin: 14px 0 10px;
+      color: var(--purple);
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+    h1 {
+      margin: 0;
+      color: var(--deep);
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 500;
+      font-size: clamp(38px, 9vw, 54px);
+      line-height: 1.08;
+    }
+    .subtitle { margin: 12px 0 0; color: var(--muted); font-size: 15px; }
+    .content {
+      width: 100%;
+      max-width: 760px;
+      margin: auto;
+      padding: 34px clamp(22px, 5vw, 64px);
+      align-self: center;
+    }
+    .message {
+      text-align: center;
+      max-width: 410px;
+      margin: 0 auto 25px;
+      font-size: 15px;
+      line-height: 1.75;
+    }
+    .details {
+      display: grid;
+      gap: 13px;
+      padding: 19px;
+      background: #fdfbff;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      margin-bottom: 27px;
+    }
+    .detail { display: grid; grid-template-columns: 27px 1fr; gap: 10px; align-items: start; }
+    .detail-icon { color: var(--purple); font-size: 18px; text-align: center; }
+    .detail strong { display: block; color: var(--deep); font-size: 13px; margin-bottom: 4px; }
+    .detail span { font-size: 13px; line-height: 1.55; }
+    h2 {
+      margin: 0 0 7px;
+      text-align: center;
+      color: var(--deep);
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 500;
+      font-size: 27px;
+    }
+    .rsvp-note { text-align: center; color: var(--muted); font-size: 13px; margin: 0 0 22px; }
+    label { display: block; margin: 15px 0 7px; font-size: 13px; font-weight: 700; color: var(--deep); }
+    input[type="text"], input[type="email"] {
+      width: 100%; padding: 13px 14px; border: 1px solid #ded0eb; border-radius: 10px;
+      background: white; font: inherit; font-size: 14px; color: var(--ink); outline: none;
+    }
+    input:focus { border-color: var(--purple); box-shadow: 0 0 0 3px #76539b1c; }
+    .choices { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .choice { position: relative; }
+    .choice input { position: absolute; opacity: 0; pointer-events: none; }
+    .choice span {
+      min-height: 48px; display: flex; align-items: center; justify-content: center; text-align: center;
+      padding: 10px; border: 1px solid #ded0eb; border-radius: 10px; font-size: 13px; cursor: pointer;
+      transition: .15s ease;
+    }
+    .choice input:checked + span { background: var(--lavender); border-color: var(--purple); color: var(--deep); font-weight: 700; }
+    .choice input:focus-visible + span { outline: 3px solid #76539b55; }
+    button {
+      width: 100%; margin-top: 22px; border: 0; border-radius: 11px; padding: 14px 18px;
+      background: var(--purple); color: white; font: inherit; font-weight: 700; cursor: pointer;
+      transition: background .15s ease, transform .15s ease;
+    }
+    button:hover { background: var(--deep); }
+    button:active { transform: scale(.99); }
+    .footer { margin: 20px 0 0; text-align: center; color: var(--muted); font-size: 12px; }
+    .heart { color: var(--purple); }
+    @media (max-width: 760px) {
+      .invite {
+        grid-template-columns: 1fr;
+        min-height: 100vh;
+        min-height: 100svh;
+      }
+      .top {
+        min-height: 38vh;
+        min-height: 38svh;
+        padding: 34px 20px 28px;
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+      .content { padding: 28px clamp(20px, 6vw, 38px) 34px; }
+    }
+    @media (max-width: 390px) {
+      .choices { grid-template-columns: 1fr; }
+      .top { min-height: auto; padding: 28px 18px 24px; }
+      .content { padding: 24px 18px 30px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="invite">
+    <header class="top">
+      <div class="sparkle" aria-hidden="true">✦ ✧ ✦</div>
+      <p class="eyebrow">A little celebration</p>
+      <h1>Sweet<br>Fifteen</h1>
+      <p class="subtitle">You're invited! ♡</p>
+    </header>
+
+    <section class="content">
+      <p class="message">
+        I'd love to spend my special day with you! Come hang out for an afternoon of
+        snacks, games, and pickleball. Your presence would make the day extra special. ♡
+      </p>
+
+      <section class="details" aria-label="Birthday details">
+        <div class="detail">
+          <div class="detail-icon" aria-hidden="true">♡</div>
+          <div><strong>WHEN</strong><span>Sunday, October 18, 2026<br>1:00 PM – 5:00 PM</span></div>
+        </div>
+        <div class="detail">
+          <div class="detail-icon" aria-hidden="true">⌖</div>
+          <div><strong>WHERE</strong><span>Uptown Courts, Bagacay, Dumaguete City<br>Across Hypermart, behind Cabanag-Tugade Building</span></div>
+        </div>
+        <div class="detail">
+          <div class="detail-icon" aria-hidden="true">♡</div>
+          <div><strong>THE PLAN</strong><span>Snacks, games, and pickleball!</span></div>
+        </div>
+      </section>
+
+      <h2>Can you make it?</h2>
+      <p class="rsvp-note">Please RSVP below so I know if you'll be there.</p>
+
+      <form action="https://formsubmit.co/kaleamartinez813@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="New RSVP — Sweet Fifteen Birthday">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_url" value="">
+        <label for="guest-name">Your name</label>
+        <input id="guest-name" type="text" name="Guest name" placeholder="Enter your full name" autocomplete="name" required>
+
+        <label>Will you be joining?</label>
+        <div class="choices">
+          <label class="choice">
+            <input type="radio" name="RSVP" value="Yes, I'll be there!" required>
+            <span>Yes, I'll be there! ♡</span>
+          </label>
+          <label class="choice">
+            <input type="radio" name="RSVP" value="Sorry, I can't make it" required>
+            <span>Sorry, can't make it</span>
+          </label>
+        </div>
+
+        <label for="guest-note">Message (optional)</label>
+        <input id="guest-note" type="text" name="Message" placeholder="Leave a little birthday message">
+
+        <button type="submit">Send My RSVP ♡</button>
+      </form>
+      <p class="footer">Thank you for being part of my special day <span class="heart">♥</span></p>
+    </section>
+  </main>
+</body>
+</html>
